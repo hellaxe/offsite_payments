@@ -36,6 +36,7 @@ module OffsitePayments
     Integrations.const_get("#{name.to_s.downcase}".camelize)
   end
 
+  mattr_accessor :app_environment
   mattr_accessor :mode
   self.mode = :production
 

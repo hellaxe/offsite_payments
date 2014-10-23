@@ -13,8 +13,10 @@ module OffsitePayments #:nodoc:
       mattr_accessor :signature_parameter_name
       self.signature_parameter_name = 'SignatureValue'
 
+      mattr_accessor :app_env
+
       def self.service_url
-        mode = OffsitePayments.mode
+        mode = OffsitePayments.app_environment || :test
         case mode
         when :production
           self.production_url
